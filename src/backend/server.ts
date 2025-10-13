@@ -1,40 +1,35 @@
 import * as path from "path";
-import express, { response } from "express";
-import {CreateHttpError} from "http-errors";
-import * as HttpError from "http-errors";
-
-import rootRoutes from "./routes/root";
-import {testRouter} from "./routes/test";
+import express from "express";
+import morgan from "morgan";
 import createHttpError from "http-errors";
 
+import rootRoutes from "./routes/root";
+import { testRouter } from "./routes/test";
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+//Logging package
+app.use(morgan("dev"));
+
+//Sending static directory
 app.use(express.static(path.join("dist", "public")));
-app.set("views", path.join(__dirname, "views"))
+
+//view engine
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-/*
-app.get("/", (_request, response) =>{
-    response.send("Hello World");
-})
-*/
-
-//Using router in root.js
+//routers
 app.use("/", rootRoutes);
+app.use("/test", testRouter);
 
-//Using router in test.js
-//app.use("/", testRoutes);
+//page not found, send 404 error
+app.use((_request, _response, next) => {
+  next(createHttpError(404));
+});
 
-
-app.use((request, response, next) => {
-    next(createHttpError(404))
-})
-
-app.listen(PORT, () =>{
-    console.log(`Server started on port ${PORT}`);
-})
-
-//Left of on 57:40
+//listen-start application at port
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});

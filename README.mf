@@ -1,0 +1,9 @@
+install all dependencies using:
+    npm install
+
+On linux, the "build:backend" script should be:
+    "rm -rf; tsc; cp -R src/backend/views dist/backend/views"
+
+On windows/cmd.exe, install the following and use this "build:backend" script:
+    npm install --save-dev rimraf cpx
+    "rimraf dist && tsc && cpx \"src/backend/views/**/*\" dist/views"

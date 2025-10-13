@@ -1,11 +1,15 @@
-import { NextFunction, Request, Response } from "express"
+import { NextFunction, Request, Response } from "express";
 
+const requestTimestampMiddleware = (
+  request: Request,
+  _response: Response,
+  next: NextFunction,
+) => {
+  console.log(
+    `Request received for ${request.url} at ${new Date().toLocaleString()}`,
+  );
 
+  next();
+};
 
-const requestTimestampMiddleware = (_request: Request, _response: Response, next: NextFunction) => {
-    console.log(`Request recieved at ${Date.now.toLocaleString()}`);
-
-    next();
-}
-
-export { requestTimestampMiddleware }
+export default requestTimestampMiddleware;
