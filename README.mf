@@ -7,3 +7,9 @@ On linux, the "build:backend" script should be:
 On windows/cmd.exe, install the following and use this "build:backend" script:
     npm install --save-dev rimraf cpx
     "rimraf dist && tsc && cpx \"src/backend/views/**/*\" dist/views"
+
+Run the website using:
+    npm run dev
+
+Added data migration support, test it at:
+    localhost:3000/user - or whatever port you use.

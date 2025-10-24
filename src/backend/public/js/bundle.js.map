@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../../frontend/entrypoint.ts"],
-  "sourcesContent": ["const button: Element | null = document.querySelector(\"#test-button\");\r\n\r\nbutton?.addEventListener(\"click\", (event) =>{\r\n    event.preventDefault();\r\n\r\n    setTimeout(() => {\r\n        alert(\"you clicked about 5 seconds ago\");\r\n    }, 5000);\r\n});"],
+  "sourcesContent": ["const button: Element | null = document.querySelector(\"#test-button\");\n\nbutton?.addEventListener(\"click\", (event) =>{\n    event.preventDefault();\n\n    setTimeout(() => {\n        alert(\"you clicked about 5 seconds ago\");\n    }, 5000);\n});"],
   "mappings": ";;;AAAA,MAAM,SAAyB,SAAS,cAAc,cAAc;AAEpE,UAAQ,iBAAiB,SAAS,CAAC,UAAS;AACxC,UAAM,eAAe;AAErB,eAAW,MAAM;AACb,YAAM,iCAAiC;AAAA,IAC3C,GAAG,GAAI;AAAA,EACX,CAAC;",
   "names": []
 }
