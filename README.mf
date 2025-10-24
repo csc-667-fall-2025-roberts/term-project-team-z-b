@@ -12,4 +12,4 @@ Run the website using:
     npm run dev
 
 Added data migration support, test it at:
-    localhost:3000/user - or whatever port you use.
+    localhost:3000/users - or whatever port you use.
